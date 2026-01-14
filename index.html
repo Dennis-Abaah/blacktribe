@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackTribe - Premium Streetwear</title>
+    <meta name="description"
+        content="BlackTribe - Premium streetwear clothing brand. Shop exclusive T-shirts, singlets, and jeans with unique designs.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bt-black': '#0a0a0a',
+                        'bt-gold': '#d4af37',
+                        'bt-gold-dark': '#b8960c',
+                        'bt-white': '#f5f5f5',
+                        'bt-gray': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-bt-black text-bt-white font-poppins">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-bt-black/95 backdrop-blur-md border-b border-bt-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="#" class="flex items-center gap-2" onclick="showPage('home')">
+                    <i class="fas fa-crown text-bt-gold text-xl md:text-2xl"></i>
+                    <span class="font-orbitron font-bold text-xl md:text-2xl text-bt-gold">BlackTribe</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#" onclick="showPage('home')"
+                        class="nav-link text-bt-white hover:text-bt-gold transition-colors duration-300">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="#products"
+                        class="nav-link text-bt-white hover:text-bt-gold transition-colors duration-300">
+                        <i class="fas fa-tshirt mr-2"></i>Shop
+                    </a>
+                    <a href="#about" class="nav-link text-bt-white hover:text-bt-gold transition-colors duration-300">
+                        <i class="fas fa-info-circle mr-2"></i>About
+                    </a>
+                    <a href="#footer" class="nav-link text-bt-white hover:text-bt-gold transition-colors duration-300">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button onclick="showPage('cart')"
+                        class="relative p-2 text-bt-white hover:text-bt-gold transition-colors duration-300"
+                        id="cartBtn">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cartCount"
+                            class="absolute -top-1 -right-1 bg-bt-gold text-bt-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button class="md:hidden p-2 text-bt-white hover:text-bt-gold" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-bt-gray border-t border-bt-gold/20">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#" onclick="showPage('home'); toggleMobileMenu();"
+                    class="block py-2 text-bt-white hover:text-bt-gold transition-colors">
+                    <i class="fas fa-home mr-3"></i>Home
+                </a>
+                <a href="#products" onclick="toggleMobileMenu();"
+                    class="block py-2 text-bt-white hover:text-bt-gold transition-colors">
+                    <i class="fas fa-tshirt mr-3"></i>Shop
+                </a>
+                <a href="#about" onclick="toggleMobileMenu();" class="block py-2 text-bt-white hover:text-bt-gold transition-colors">
+                    <i class="fas fa-info-circle mr-3"></i>About
+                </a>
+                <a href="#footer" onclick="toggleMobileMenu();"class="block py-2 text-bt-white hover:text-bt-gold transition-colors">
+                    <i class="fas fa-envelope mr-3"></i>Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage">
+        <!-- Hero Section -->
+        <section class="relative h-screen pt-16 md:pt-20 overflow-hidden">
+            <div class="hero-slider absolute inset-0">
+                <div class="slide active" style="background-image: url('BlackTribe Tshirt 1.jpeg');"></div>
+                <div class="slide" style="background-image: url('BlackTribe Tshirt 2.jpeg');"></div>
+                <div class="slide" style="background-image: url('BlackTribe Singlet.jpeg');"></div>
+                <div class="slide" style="background-image: url('BlackTribe Jeans.jpeg');"></div>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-bt-black/70 via-bt-black/50 to-bt-black"></div>
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+                <div class="animate-fade-in-up">
+                    <i class="fas fa-crown text-bt-gold text-4xl md:text-6xl mb-6 animate-pulse-gold"></i>
+                    <h1 class="font-orbitron text-4xl md:text-7xl font-bold mb-4">
+                        <span class="text-bt-gold">BLACK</span><span class="text-bt-white">TRIBE</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                        <i class="fas fa-fire text-bt-gold mr-2"></i>
+                        Premium Streetwear for the Bold & Fearless
+                        <i class="fas fa-fire text-bt-gold ml-2"></i>
+                    </p>
+                    <a href="#products"
+                        class="inline-flex items-center gap-3 bg-bt-gold text-bt-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-bt-gold-dark transform hover:scale-105 transition-all duration-300 shadow-lg shadow-bt-gold/30">
+                        <i class="fas fa-shopping-bag"></i>
+                        Shop Collection
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <!-- Hero Slider Dots -->
+                <div class="absolute bottom-10 flex gap-3">
+                    <button class="slider-dot active w-3 h-3 rounded-full bg-bt-gold/50 hover:bg-bt-gold transition-all"
+                        onclick="goToSlide(0)"></button>
+                    <button class="slider-dot w-3 h-3 rounded-full bg-bt-gold/50 hover:bg-bt-gold transition-all"
+                        onclick="goToSlide(1)"></button>
+                    <button class="slider-dot w-3 h-3 rounded-full bg-bt-gold/50 hover:bg-bt-gold transition-all"
+                        onclick="goToSlide(2)"></button>
+                    <button class="slider-dot w-3 h-3 rounded-full bg-bt-gold/50 hover:bg-bt-gold transition-all"
+                        onclick="goToSlide(3)"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-16 bg-bt-gray/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    <div
+                        class="text-center p-6 rounded-2xl bg-bt-black/50 border border-bt-gold/10 hover:border-bt-gold/30 transition-all duration-300">
+                        <i class="fas fa-truck text-bt-gold text-3xl mb-4"></i>
+                        <h3 class="font-semibold mb-2">Fast Delivery</h3>
+                        <p class="text-sm text-gray-400">Quick shipping nationwide</p>
+                    </div>
+                    <div
+                        class="text-center p-6 rounded-2xl bg-bt-black/50 border border-bt-gold/10 hover:border-bt-gold/30 transition-all duration-300">
+                        <i class="fas fa-gem text-bt-gold text-3xl mb-4"></i>
+                        <h3 class="font-semibold mb-2">Premium Quality</h3>
+                        <p class="text-sm text-gray-400">100% quality materials</p>
+                    </div>
+                    <div
+                        class="text-center p-6 rounded-2xl bg-bt-black/50 border border-bt-gold/10 hover:border-bt-gold/30 transition-all duration-300">
+                        <i class="fab fa-whatsapp text-bt-gold text-3xl mb-4"></i>
+                        <h3 class="font-semibold mb-2">Easy Ordering</h3>
+                        <p class="text-sm text-gray-400">WhatsApp checkout</p>
+                    </div>
+                    <div
+                        class="text-center p-6 rounded-2xl bg-bt-black/50 border border-bt-gold/10 hover:border-bt-gold/30 transition-all duration-300">
+                        <i class="fas fa-shield-alt text-bt-gold text-3xl mb-4"></i>
+                        <h3 class="font-semibold mb-2">Secure Payment</h3>
+                        <p class="text-sm text-gray-400">Safe & trusted</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-16">
+                    <span
+                        class="inline-flex items-center gap-2 text-bt-gold text-sm font-semibold tracking-wider uppercase mb-4">
+                        <i class="fas fa-star"></i> Our Collection <i class="fas fa-star"></i>
+                    </span>
+                    <h2 class="font-orbitron text-3xl md:text-5xl font-bold mb-4">
+                        <span class="text-bt-gold">Premium</span> Products
+                    </h2>
+                    <p class="text-gray-400 max-w-xl mx-auto">
+                        Discover our exclusive streetwear collection designed for those who dare to stand out
+                    </p>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" id="productGrid">
+                    <!-- Products will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-bt-gray/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span
+                            class="inline-flex items-center gap-2 text-bt-gold text-sm font-semibold tracking-wider uppercase mb-4">
+                            <i class="fas fa-crown"></i> About Us
+                        </span>
+                        <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-6">
+                            The <span class="text-bt-gold">BlackTribe</span> Story
+                        </h2>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            BlackTribe is not just a brand, it's a movement. We create premium streetwear for
+                            individuals who refuse to blend in. Our designs are inspired by urban culture, bold
+                            aesthetics, and the spirit of independence.
+                        </p>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            Each piece is crafted with attention to detail and quality, ensuring you not only look good
+                            but feel confident. Join the tribe and make your statement.
+                        </p>
+                        <div class="flex flex-wrap gap-6">
+                            <div class="text-center">
+                                <i class="fas fa-users text-bt-gold text-2xl mb-2"></i>
+                                <p class="font-bold text-2xl">500+</p>
+                                <p class="text-sm text-gray-400">Happy Customers</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-tshirt text-bt-gold text-2xl mb-2"></i>
+                                <p class="font-bold text-2xl">4</p>
+                                <p class="text-sm text-gray-400">Exclusive Items</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-star text-bt-gold text-2xl mb-2"></i>
+                                <p class="font-bold text-2xl">5.0</p>
+                                <p class="text-sm text-gray-400">Star Rating</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="BlackTribe Tshirt 1.jpeg" alt="BlackTribe"
+                                class="rounded-2xl w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                            <img src="BlackTribe Tshirt 2.jpeg" alt="BlackTribe"
+                                class="rounded-2xl w-full h-64 object-cover hover:scale-105 transition-transform duration-500 mt-8">
+                        </div>
+                        <div
+                            class="absolute -bottom-4 -left-4 w-24 h-24 border-4 border-bt-gold rounded-full flex items-center justify-center bg-bt-black">
+                            <i class="fas fa-crown text-bt-gold text-3xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Item Detail Page -->
+    <div id="itemPage" class="hidden pt-20 md:pt-24 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm mb-8">
+                <a href="#" onclick="showPage('home')" class="text-gray-400 hover:text-bt-gold transition-colors">
+                    <i class="fas fa-home mr-1"></i>Home
+                </a>
+                <i class="fas fa-chevron-right text-bt-gold/50 text-xs"></i>
+                <span class="text-bt-gold" id="breadcrumbItem">Product</span>
+            </nav>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Product Image -->
+                <div class="relative group">
+                    <div class="aspect-square rounded-3xl overflow-hidden bg-bt-gray border border-bt-gold/10">
+                        <img id="itemImage" src="" alt=""
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div
+                        class="absolute top-4 left-4 bg-bt-gold text-bt-black px-4 py-2 rounded-full text-sm font-bold">
+                        <i class="fas fa-fire mr-2"></i>Hot Item
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="flex flex-col">
+                    <span class="text-bt-gold text-sm font-semibold tracking-wider uppercase mb-2">
+                        <i class="fas fa-crown mr-2"></i>BlackTribe Collection
+                    </span>
+                    <h1 id="itemName" class="font-orbitron text-3xl md:text-4xl font-bold mb-4"></h1>
+                    <div class="flex items-center gap-4 mb-6">
+                        <span id="itemPrice" class="text-3xl md:text-4xl font-bold text-bt-gold"></span>
+                        <span class="text-sm text-gray-400 flex items-center gap-1">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            (5.0)
+                        </span>
+                    </div>
+                    <p id="itemDescription" class="text-gray-300 mb-8 leading-relaxed"></p>
+
+                    <!-- Color Selection -->
+                    <div id="colorSection" class="mb-6">
+                        <h3 class="font-semibold mb-3 flex items-center gap-2">
+                            <i class="fas fa-palette text-bt-gold"></i>Select Color
+                        </h3>
+                        <div id="colorOptions" class="flex flex-wrap gap-3">
+                            <!-- Colors will be dynamically inserted -->
+                        </div>
+                    </div>
+
+                    <!-- Size Selection -->
+                    <div id="sizeSection" class="mb-6">
+                        <h3 class="font-semibold mb-3 flex items-center gap-2">
+                            <i class="fas fa-ruler text-bt-gold"></i>Select Size
+                        </h3>
+                        <div id="sizeOptions" class="flex flex-wrap gap-3">
+                            <!-- Sizes will be dynamically inserted -->
+                        </div>
+                    </div>
+
+                    <!-- Quantity Selection -->
+                    <div class="mb-8">
+                        <h3 class="font-semibold mb-3 flex items-center gap-2">
+                            <i class="fas fa-boxes text-bt-gold"></i>Quantity
+                        </h3>
+                        <div
+                            class="inline-flex items-center bg-bt-gray rounded-xl border border-bt-gold/20 overflow-hidden">
+                            <button onclick="updateItemQuantity(-1)"
+                                class="px-4 py-3 text-bt-gold hover:bg-bt-gold/10 transition-colors">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <span id="itemQuantity" class="px-6 py-3 font-bold text-xl">1</span>
+                            <button onclick="updateItemQuantity(1)"
+                                class="px-4 py-3 text-bt-gold hover:bg-bt-gold/10 transition-colors">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="addToCartFromDetail()"
+                            class="flex-1 bg-bt-gray border-2 border-bt-gold text-bt-gold px-8 py-4 rounded-xl font-semibold hover:bg-bt-gold hover:text-bt-black transition-all duration-300 flex items-center justify-center gap-3">
+                            <i class="fas fa-cart-plus"></i>Add to Cart
+                        </button>
+                        <button onclick="orderNowFromDetail()"
+                            class="flex-1 bg-bt-gold text-bt-black px-8 py-4 rounded-xl font-semibold hover:bg-bt-gold-dark transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-bt-gold/30">
+                            <i class="fab fa-whatsapp text-xl"></i>Order Now
+                        </button>
+                    </div>
+
+                    <!-- Product Features -->
+                    <div class="mt-8 pt-8 border-t border-bt-gold/20">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-check-circle text-bt-gold"></i>
+                                <span class="text-sm text-gray-300">Premium Quality</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-truck text-bt-gold"></i>
+                                <span class="text-sm text-gray-300">Fast Delivery</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-sync text-bt-gold"></i>
+                                <span class="text-sm text-gray-300">Easy Returns</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-shield-alt text-bt-gold"></i>
+                                <span class="text-sm text-gray-300">Secure Order</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Products Section -->
+            <section class="mt-16 md:mt-24">
+                <div class="text-center mb-8">
+                    <span
+                        class="inline-flex items-center gap-2 text-bt-gold text-sm font-semibold tracking-wider uppercase mb-2">
+                        <i class="fas fa-fire"></i> You May Also Like
+                    </span>
+                    <h2 class="font-orbitron text-2xl md:text-3xl font-bold">Other Products</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6" id="otherProducts">
+                    <!-- Other products will be dynamically inserted -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Cart Page -->
+    <div id="cartPage" class="hidden pt-20 md:pt-24 min-h-screen">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm mb-8">
+                <a href="#" onclick="showPage('home')" class="text-gray-400 hover:text-bt-gold transition-colors">
+                    <i class="fas fa-home mr-1"></i>Home
+                </a>
+                <i class="fas fa-chevron-right text-bt-gold/50 text-xs"></i>
+                <span class="text-bt-gold">Shopping Cart</span>
+            </nav>
+
+            <div class="text-center mb-12">
+                <i class="fas fa-shopping-cart text-bt-gold text-4xl mb-4"></i>
+                <h1 class="font-orbitron text-3xl md:text-4xl font-bold">Your <span class="text-bt-gold">Cart</span>
+                </h1>
+            </div>
+
+            <!-- Empty Cart Message -->
+            <div id="emptyCart" class="hidden text-center py-16">
+                <i class="fas fa-shopping-basket text-bt-gold/30 text-6xl mb-6"></i>
+                <h2 class="font-orbitron text-2xl font-bold mb-4">Your Cart is Empty</h2>
+                <p class="text-gray-400 mb-8">Looks like you haven't added any items yet</p>
+                <button onclick="showPage('home')"
+                    class="inline-flex items-center gap-3 bg-bt-gold text-bt-black px-8 py-4 rounded-full font-semibold hover:bg-bt-gold-dark transition-all duration-300">
+                    <i class="fas fa-shopping-bag"></i>Continue Shopping
+                </button>
+            </div>
+
+            <!-- Cart Items -->
+            <div id="cartItems" class="space-y-4 mb-8">
+                <!-- Cart items will be dynamically inserted -->
+            </div>
+
+            <!-- Cart Summary -->
+            <div id="cartSummary" class="hidden bg-bt-gray rounded-3xl border border-bt-gold/20 p-6 md:p-8">
+                <h3 class="font-orbitron text-xl font-bold mb-6 flex items-center gap-3">
+                    <i class="fas fa-receipt text-bt-gold"></i>Order Summary
+                </h3>
+                <div class="space-y-4 mb-6">
+                    <div class="flex justify-between text-gray-300">
+                        <span>Subtotal</span>
+                        <span id="subtotal">₵0.00</span>
+                    </div>
+                    <div class="flex justify-between text-gray-300">
+                        <span>Delivery Fee</span>
+                        <span class="text-sm text-bt-gold">Calculated via WhatsApp</span>
+                    </div>
+                    <div class="border-t border-bt-gold/20 pt-4 flex justify-between">
+                        <span class="font-bold text-lg">Total</span>
+                        <span id="totalAmount" class="font-bold text-2xl text-bt-gold">₵0.00</span>
+                    </div>
+                </div>
+                <button onclick="checkoutViaWhatsApp()"
+                    class="w-full bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg">
+                    <i class="fab fa-whatsapp text-2xl"></i>Checkout via WhatsApp
+                </button>
+                <p class="text-center text-gray-400 text-sm mt-4">
+                    <i class="fas fa-info-circle mr-1"></i>Delivery fee will be calculated on WhatsApp
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-bt-gray border-t border-bt-gold/20 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-crown text-bt-gold text-2xl"></i>
+                        <span class="font-orbitron font-bold text-2xl text-bt-gold">BlackTribe</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Premium streetwear for the bold and fearless. Join the tribe and make your statement with our
+                        exclusive collection.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-bt-gold/10 border border-bt-gold/30 flex items-center justify-center text-bt-gold hover:bg-bt-gold hover:text-bt-black transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-bt-gold/10 border border-bt-gold/30 flex items-center justify-center text-bt-gold hover:bg-bt-gold hover:text-bt-black transition-all duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-bt-gold/10 border border-bt-gold/30 flex items-center justify-center text-bt-gold hover:bg-bt-gold hover:text-bt-black transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-bt-gold/10 border border-bt-gold/30 flex items-center justify-center text-bt-gold hover:bg-bt-gold hover:text-bt-black transition-all duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-orbitron font-bold text-bt-gold mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" onclick="showPage('home')"
+                                class="text-gray-400 hover:text-bt-gold transition-colors flex items-center gap-2"><i
+                                    class="fas fa-chevron-right text-xs text-bt-gold/50"></i>Home</a></li>
+                        <li><a href="#products"
+                                class="text-gray-400 hover:text-bt-gold transition-colors flex items-center gap-2"><i
+                                    class="fas fa-chevron-right text-xs text-bt-gold/50"></i>Shop</a></li>
+                        <li><a href="#about"
+                                class="text-gray-400 hover:text-bt-gold transition-colors flex items-center gap-2"><i
+                                    class="fas fa-chevron-right text-xs text-bt-gold/50"></i>About Us</a></li>
+                        <li><a href="#footer"
+                                class="text-gray-400 hover:text-bt-gold transition-colors flex items-center gap-2"><i
+                                    class="fas fa-chevron-right text-xs text-bt-gold/50"></i>Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-orbitron font-bold text-bt-gold mb-4">Contact Us</h4>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 flex items-center gap-3">
+                            <i class="fab fa-whatsapp text-bt-gold"></i>
+                            <span>+233 59 866 6142</span>
+                        </li>
+                        <li class="text-gray-400 flex items-center gap-3">
+                            <i class="fas fa-envelope text-bt-gold"></i>
+                            <span>info@blacktribe.com</span>
+                        </li>
+                        <li class="text-gray-400 flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-bt-gold"></i>
+                            <span>Accra, Ghana</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-bt-gold/20 mt-12 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2026 BlackTribe. All rights reserved.
+                    <br />
+                    Made in Ghana
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
